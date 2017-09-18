@@ -1,0 +1,8 @@
+services:
+- docker
+script:
+- docker build -t wtanaka/xenial-oraclejdk8-zookeeper-py2 .
+- docker run wtanaka/xenial-oraclejdk8-zookeeper-py2 bash -c "which /usr/lib/zookeeper/bin/cli_mt"
+- docker run wtanaka/xenial-oraclejdk8-zookeeper-py2 python -V
+after_success:
+- curl https://registry.hub.docker.com/u/wtanaka/xenial-oraclejdk8-zookeeper-py2/trigger/98da4cab-c5a6-429d-bb3e-2c737f32ec00/
